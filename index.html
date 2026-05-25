@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>保險服務 StarMind Insurance Services | 專業保單健診與高端家庭保障規劃</title>
+    <meta name="description" content="保險服務提供最專業的家族資產守護、一對一免費保單健診、創新型旅行平安險線上投保以及高效率理賠申請協助。我們致力於用光明的思維，為高端家庭築起堅實的風險防護網。">
+    <meta name="keywords" content="保險, StarMind, 保單健診, 保障規劃, 旅平險線上投保, 理賠文件下載, 旅遊不便險, 資產傳承">
+    <author content="保險服務 StarMind Insurance Services"></author>
+
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <style>
+        /* --- 星明保險：藍綠漸層與光明視覺系統 --- */
+        :root {
+            --primary: #0d9488;       /* 核心青綠：明亮、充滿希望與生機 */
+            --primary-dark: #0f766e;  /* 深青綠：沉穩的金融誠信底蘊 */
+            --secondary: #0284c7;     /* 晨光藍：象徵天空、光明與遼闊 */
+            --accent: #f59e0b;        /* 太陽金：畫龍點睛的溫暖，引導客戶諮詢 */
+            --accent-hover: #d97706;  
+            --text-main: #334155;     /* 高易讀深灰 */
+            --text-light: #94a3b8;    
+            --bg-light: #f0f9ff;      /* 帶有晨光藍色調的純淨呼吸留白背景 */
+            --white: #ffffff;
+            --shadow-sm: 0 4px 20px -2px rgba(13, 148, 136, 0.08);
+            --shadow-lg: 0 20px 40px -5px rgba(2, 132, 199, 0.12), 0 10px 15px -5px rgba(13, 148, 136, 0.06);
+            --radius: 14px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Helvetica Neue", Arial, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.8;
+            padding-top: 85px; /* 留給固定導覽列的空間 */
+        }
+
+        /* --- 1. 導覽列 --- */
+        .elite-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 85px;
+            background: linear-gradient(135deg, rgba(15, 118, 110, 0.98) 0%, rgba(2, 132, 199, 0.98) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 4%;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(13, 148, 136, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .nav-logo {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .nav-logo .brand-zh {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--white);
+        }
+
+        .nav-logo .brand-en {
+            font-size: 0.75rem;
+            color: #ccfbf1; 
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #e0f2fe;
+            text-decoration: none;
+            font-size: 0.98rem; 
+            font-weight: 500;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: var(--transition);
+            cursor: pointer;
+            white-space: nowrap; 
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--white);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* --- 手機版 RWD 選單斷點 --- */
+        @media (max-width: 992px) {
+            .menu-toggle { display: flex; }
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%; 
+                width: 280px;
+                height: 100vh;
+                background: linear-gradient(180deg, #0f766e 0%, #0284c7 100%);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding: 110px 30px 40px 30px;
+                gap: 15px;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.25);
+                transition: var(--transition);
+                z-index: 1050;
+            }
+            .nav-menu.mobile-open { right: 0; }
+            .nav-link {
+                display: block;
+                width: 100%;
+                font-size: 1.1rem;
+                padding: 12px 16px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                border-radius: 0;
+            }
+            .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+            .menu-toggle.open span:nth-child(2) { opacity: 0; }
+            .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -8px); }
+        }
+
+        /* --- 2. 主內文佈局 --- */
+        .main-container {
+            max-width: 1200px;
+            margin: 20px auto 60px auto;
+            padding: 0 20px;
+            min-height: 70vh;
+        }
+
+        .page-section {
+            display: none;
+            animation: fadeInPage 0.4s ease-out forwards;
+        }
+
+        .page-section.active-page { display: block; }
+
+        @keyframes fadeInPage {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- 3. 輕量化精緻標題橫條 --- */
+        .image-showcase {
+            width: 100%;
+            height: 60px; 
+            background: linear-gradient(135deg, #0f766e 0%, #0284c7 100%);
+            border-radius: 10px;
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: row; 
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 20px;
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        @media (min-width: 768px) {
+            .image-showcase { height: 75px; } 
+        }
+
+        .image-showcase .img-icon {
+            font-size: 1.6rem;
+            margin-right: 15px;
+        }
+
+        .image-showcase .title-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .image-showcase h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #f8fafc;
+            line-height: 1.2;
+        }
+
+        .image-showcase p {
+            font-size: 0.75rem;
+            color: #ccfbf1;
+            margin-top: 2px;
+            opacity: 0.9;
+        }
+
+        @media (min-width: 768px) {
+            .image-showcase .img-icon { font-size: 2rem; }
+            .image-showcase h3 { font-size: 1.4rem; }
+            .image-showcase p { font-size: 0.85rem; }
+        }
+
+        /* --- 4. 卡片與排版元件 --- */
+        .grid-layout, .grid-2col, .grid-3col {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-layout { grid-template-columns: 1.2fr 1fr; }
+            .grid-2col { grid-template-columns: 1fr 1fr; }
+            .grid-3col { grid-template-columns: 1fr 1fr 1fr; }
+        }
+
+        .elite-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 22px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #e2e8f0;
+            transition: var(--transition);
+        }
+
+        @media (min-width: 768px) {
+            .elite-card { padding: 35px; }
+        }
+
+        .elite-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            border-color: #cbd5e1;
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 18px;
+            position: relative;
+            padding-left: 14px;
+            line-height: 1.3;
+        }
+
+        @media (min-width: 768px) {
+            .section-title { font-size: 1.6rem; }
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15%;
+            height: 70%;
+            width: 4px;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 4px;
+        }
+
+        .btn-elite-download {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin: 10px 0;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.15);
+            font-size: 0.95rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        @media (min-width: 576px) {
+            .btn-elite-download { width: auto; padding: 14px 32px; font-size: 1rem; }
+        }
+
+        .btn-elite-download:hover {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            transform: translateY(-1px);
+        }
+
+        .btn-line-引流 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 440px;
+            margin: 20px auto;
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: var(--white);
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: 35px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 6px 15px rgba(245, 158, 11, 0.25);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+            .btn-line-引流 { padding: 18px; font-size: 1.2rem; }
+        }
+
+        .btn-line-引流:hover {
+            transform: scale(1.01) translateY(-1px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.35);
+        }
+
+        .doc-list { list-style: none; }
+        .doc-list li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 10px;
+            font-size: 0.98rem;
+        }
+        .doc-list li::before {
+            content: "✦";
+            position: absolute;
+            left: 3px;
+            color: var(--primary);
+        }
+
+        .sub-type-box {
+            background: #f0fdfa; 
+            padding: 18px;
+            border-radius: 10px;
+            margin-top: 12px;
+            border: 1px solid #ccfbf1;
+        }
+        .sub-type-box h4 {
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border-bottom: 2px solid #b2f5ea;
+            padding-bottom: 4px;
+        }
+
+        .sub-type-box ul { list-style: none; padding-left: 5px; }
+        .sub-type-box ul li { margin-bottom: 6px; font-size: 0.95rem; }
+
+        .sub-type-box .notice-text {
+            background: #fff;
+            padding: 10px;
+            border-radius: 6px;
+            border-left: 3px solid var(--secondary);
+            margin-top: 10px;
+            font-size: 0.88rem;
+            color: #475569;
+        }
+
+        .highlight-notice {
+            background-color: #fffbeb;
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        /* --- 5. 客服彈窗 --- */
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: calc(100% - 40px);
+            max-width: 380px;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(13, 148, 136, 0.15);
+            border: 1px solid #ccfbf1;
+            z-index: 2000;
+            overflow: hidden;
+            transform: translateY(120%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .chat-widget.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-body { padding: 20px; text-align: center; }
+        .chat-close-btn { background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <nav class="elite-navbar">
+        <a class="nav-logo" onclick="switchPage('home')">
+            <span class="brand-zh">保險服務</span>
+            <span class="brand-en">StarMind Insurance Services</span>
+        </a>
+        
+        <button class="menu-toggle" id="mobile-toggle" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-menu" id="nav-menu-list">
+            <li><a class="nav-link" id="link-home" onclick="switchPage('home')">首頁</a></li>
+            <li><a class="nav-link" id="link-slide4" onclick="switchPage('slide4')">理賠須知 | 文件</a></li>
+            <li><a class="nav-link" id="link-slide7" onclick="switchPage('slide7')">繳費 | 刷卡 | 扣款</a></li>
+            <li><a class="nav-link" id="link-slide8" onclick="switchPage('slide8')">保單健診</a></li>
+            <li><a class="nav-link" id="link-slide10" onclick="switchPage('slide10')">投保旅平險</a></li>
+            <li><a class="nav-link" id="link-slide12" onclick="switchPage('slide12')">保障規劃</a></li>
+            <li><a class="nav-link" id="link-admin" style="color: var(--accent); font-weight: bold;" onclick="openAdminChat()">專人服務</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-container">
+
+        <div id="home" class="page-section">
+            <div class="image-showcase">
+                <div class="img-icon">✨</div>
+                <div class="title-group">
+                    <h3>點亮星光引路，守護家族財富與明日安全</h3>
+                    <p>Illuminating Your Legacy, Securing Tomorrow</p>
+                </div>
+            </div>
+
+            <div class="elite-card" style="margin-bottom: 20px; border-left: 5px solid var(--primary);">
+                <h2 class="section-title">保險的真正意義與核心功能</h2>
+                <div style="font-size:1rem; color:var(--text-main); text-align: justify;">
+                    <p style="text-indent: 28px;">
+                        保險的本質，是一項關於<strong>「愛、責任與財富平準化」</strong>的宏大制度。在人生的順境中，保險是錦上添花的資產隔離護城河，透過法律與金融工具，將高資產家庭的財富精準錨定、跨世代安全傳承；而在不可預知的逆境中，保險則是雪中送炭的鋼鐵防護網。它用群體互助的確定性，去對抗個體生命遭遇疾病、失能或身故時的極端不確定性，確保家庭在驚濤駭浪中依然擁有對生活的「絕對掌控權」。
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid-3col">
+                <div class="elite-card" style="border-top: 4px solid var(--primary); padding: 20px;">
+                    <h3 style="color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 8px; font-weight:700;">1. 轉移未知風險</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-main); text-align: justify;">
+                        高昂的現代自費醫療、重大傷病引發的數年收入中斷，往往會在極短時間內侵蝕掉資產。保險就是將這種「高破壞力、低機率」的災難性風險，制度化地轉移給保險公司。
+                    </p>
+                </div>
+                <div class="elite-card" style="border-top: 4px solid var(--secondary); padding: 20px;">
+                    <h3 style="color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 8px; font-weight:700;">2. 築起資產護城河</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-main); text-align: justify;">
+                        沒有保險作為底層防禦流，再宏偉的投資組合都如同蓋在沙灘上的城堡。保險能確保在體況或市場動盪時，您的核心財富不被強制變現，鎖定完整防禦力。
+                    </p>
+                </div>
+                <div class="elite-card" style="border-top: 4px solid var(--accent); padding: 20px;">
+                    <h3 style="color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 8px; font-weight:700;">3. 黃金配置槓桿</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-main); text-align: justify;">
+                        運用智慧配置，以少數的預算規劃出高達年收入數十倍的專屬家庭責任保障額。這是一項以小博大、極具智慧的風險管理架構，用確定的成本鎖定絕對安心的未來。
+                    </p>
+                </div>
+            </div>
+
+            <button class="btn-line-引流" onclick="switchPage('slide12')">
+                🚀 進入「保障規劃」探索您的防禦藍圖
+            </button>
+        </div>
+
+        <div id="slide4" class="page-section">
+            <div class="image-showcase">
+                <div class="img-icon">📂</div>
+                <div class="title-group">
+                    <h3>理賠權益與文件審查中心</h3>
+                    <p>StarMind Claims & Document Review Center</p>
+                </div>
+            </div>
+
+            <div class="elite-card" style="margin-bottom: 20px;">
+                <h2 class="section-title">理賠須知 | 文件</h2>
+                <p style="margin-bottom:12px; color:var(--text-main); font-size:0.98rem; text-align: justify;">
+                    歡迎進入理賠審查服務專區。保險契約的真正價值，在於風險發生時，能夠提供即時、足額且具撫慰力量的保險金給付。為了確保您的合法權益在最短時間內獲得落實，請下載最新規範之理賠申請書（版本：<strong>11501版</strong>）。填妥後檢附對應證明文件郵寄回本公司，我們將啟動綠色通道，全速為您辦理審查與給付程序。我們深知每一次申請理賠背後都代表一份急迫的醫療或家庭需求，星明團隊將以高效率協助您度過體況關卡。
+                </p>
+                <a href="https://drive.google.com/file/d/1cdgMqjGGs1eTWNVWYVSJEbOC63gWYCtR/view?usp=sharing" target="_blank" class="btn-elite-download">
+                    📥 下載理賠申請書 (11501版)
+                </a>
+            </div>
+
+            <div class="grid-layout">
+                <div class="elite-card">
+                    <h3 class="section-title">一、基本必備文件</h3>
+                    <p style="font-size:0.9rem; color:var(--text-light); margin-bottom:10px;">不論申請何種理賠項目，均需備齊以下基礎文件以利歸檔：</p>
+                    <ul class="doc-list">
+                        <li>保險金申請書（填寫規範：必須由受益人親自簽名，並完整填寫第一頁所有通訊欄位與匯款帳號）。</li>
+                        <li>受益人身分證明文件（身分證正反面影本；若受益人為未成年人，需另附法定代理人身分證影本及戶籍謄本）。</li>
+                        <li>法定繼承人聲明同意書（若契約指定受益人為「法定繼承人」時，需檢附全戶除戶及現戶戶籍謄本）。</li>
+                    </ul>
+                </div>
+
+                <div class="elite-card">
+                    <h3 class="section-title">📌 三、特別注意事項與法律權益</h3>
+                    <div class="highlight-notice" style="font-size:0.9rem; line-height: 1.8; text-align: justify;">
+                        <p>• <strong>完整填寫與告知義務：</strong>請務必完整填寫申請書第1頁各項重點欄位，避免因資料缺漏導致案件遭到退件或補件，影響給付時效。</p>
+                        <p style="margin-top:8px;">• <strong>病歷調閱授權：</strong>若案件涉及既往體況核查或需向醫院調閱相關病歷，請務必簽署<strong>第3頁之《同意查詢暨授權聲明書》</strong>，以利加速審查流程。</p>
+                        <p style="margin-top:8px;">• <strong>身故案件簽署規範：</strong>若為身故理賠案件，第3頁授權書必須由全體法定繼承人共同親自簽署，方具備完整法律效力。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="elite-card">
+                <h3 class="section-title">📁 二、依理賠類型所需細項文件與實務指引</h3>
+                <p style="font-size:0.93rem; margin-bottom:15px; text-align: justify;">
+                    依據不同保險事故，除基本文件外，保戶須依合約條款檢附對應的醫療或法律證明。以下針對四大核心理賠申請進行深度梳理，請保戶配合備妥，避免因體況界定模糊衍生爭議：
+                </p>
+                <div class="grid-2col" style="margin-top:10px;">
+                    <div class="sub-type-box" style="margin-top:0;">
+                        <h4>🏥 醫療理賠（日額 / 實支實付型）</h4>
+                        <ul>
+                            <li>✅ <strong>診斷證明書正本：</strong>須由合格醫院或診所開立，並明確記載入出院日期、手術名稱及詳細病名。</li>
+                            <li>✅ <strong>醫療收據正本及費用明細表：</strong>實支實付險種必備，明細表須清晰列出各項自費藥物、材料費與病房費差額。</li>
+                            <li>✅ <strong>相關檢驗或病理切片報告：</strong>若申請重大傷病或癌症理賠，必須檢附初次確診之組織病理切片報告。</li>
+                        </ul>
+                        <div class="notice-text">📌 <strong>剖腹產特別說明：</strong>若因體況需行剖腹產，請另行檢附產程記錄或完整病歷摘要。</div>
+                    </div>
+
+                    <div class="sub-type-box" style="margin-top:0;">
+                        <h4>♿ 失能給付與長期照顧險</h4>
+                        <ul>
+                            <li>✅ <strong>失能診斷證明書：</strong>須由專科醫師依據保單條款附表之失能程度審定，並明確註明失能症狀、部位及等級。</li>
+                            <li>✅ <strong>專用評估量表：</strong>申請長照給付者，須檢附符合條款規定之巴氏量表（Barthel Index）或臨床失智評估量表（CDR）。</li>
+                            <li>✅ <strong>意外事故證明文件：</strong>如涉及外來突發交通意外，請檢附警察局道路交通事故初步分析研判表。</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-type-box" style="margin-top:0;">
+                        <h4>⚱️ 身故保險金理賠申請</h4>
+                        <ul>
+                            <li>✅ <strong>死亡證明書：</strong>合格醫院開立之死亡證明書正本，或檢察官開立之相驗屍體證明書正本。</li>
+                            <li>✅ <strong>全戶除戶戶籍謄本：</strong>須載有被保險人死亡登記之除戶謄本，以及全體受益人之現戶戶籍謄本。</li>
+                            <li>✅ <strong>意外身故專用證明：</strong>若屬突發性職業災害或外來意外事故身故，需另檢附勞安檢查報告或事故現場調查紀錄。</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-type-box" style="margin-top:0;">
+                        <h4>💡 其他特殊給付與附加險項目</h4>
+                        <ul>
+                            <li>✅ <strong>骨折傷害給付：</strong>除診斷書外，必須另行附上醫療期間所拍攝之清晰X光片光碟以供審查骨折程度。</li>
+                            <li>✅ <strong>生育津貼給付：</strong>需檢附新生兒出生證明書正本、母親之診斷證明書與身分證件影本。</li>
+                            <li>✅ <strong>住院慰問金：</strong>需附醫院住院證明書，或提供印有保戶姓名、床號之床頭卡、住院手圈之清晰影像作為輔助。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="slide7" class="page-section">
+            <div class="image-showcase">
+                <div class="img-icon">💳</div>
+                <div class="title-group">
+                    <h3>信用卡刷卡與銀行扣款繳保費</h3>
+                    <p>Premium Payment & Secure Transfer Center</p>
+                </div>
+            </div>
+
+            <div class="elite-card" style="margin-bottom: 25px;">
+                <h2 class="section-title">繳費服務與轉帳扣款異動專區 <span style="font-size:0.85rem; color:var(--text-light); font-weight:normal;">(版本：11312版)</span></h2>
+                <div style="font-size: 0.98rem; text-align: justify; line-height: 1.8;">
+                    <p style="margin-bottom: 15px;">
+                        歡迎光臨。保險契約是一項長期的經濟承諾，而「按時繳納保費」是維持這份承諾、確保保障不間斷的核心基石。在保險實務中，許多保戶常因信用卡有效期限過期、更換新卡、銀行帳戶餘額不足，或是更換主要往來銀行，導致保險公司無法順利完成自動扣款。<strong>一旦保費未能如期扣繳，保單將會進入「寬限期」，若寬限期滿仍未繳清，保單效力將會停止（停效）</strong>，這將使您與家人曝露在毫無防護的風險空窗期之中。
+                    </p>
+                    <p style="margin-bottom: 15px;">
+                        為了解決此痛點並維護您的核心防護網，本專區提供最新 11312 版本之自動扣款授權變更服務。無論您是要變更為金融機構帳戶轉帳，還是使用指定信用卡進行繳費，請務必下載最新官方授權書，填妥後掛號寄回。我們將在收到文件後的 3 個工作天內，對接銀行信託安全系統進行金流變更，確保您的資產防禦網 24 小時維持滿格防禦力。合理的繳費工具配置不僅能讓您省時省力，更有助於家族中多張保單的集中管理，達到資產有秩序規劃的最高境界。
+                    </p>
+                </div>
+                <a href="https://drive.google.com/file/d/19G4bko1g1SzgvBXhHsta7SvqHPUoEDiJ/view?usp=sharing" target="_blank" class="btn-elite-download">
+                    📥 下載自動扣款變更授權書 (11312官方版本)
+                </a>
+            </div>
+
+            <div class="grid-2col">
+                <div class="elite-card" style="border-top: 4px solid var(--primary);">
+                    <h3 style="font-size:1.15rem; font-weight:700; color:var(--primary-dark); margin-bottom:12px;">📌 一、自動轉帳扣繳變更規範說明</h3>
+                    <div style="font-size:0.92rem; text-align:justify; line-height:1.7;">
+                        <p style="margin-bottom:8px;">根據金融機構自動轉帳作業約定，變更手續必須嚴格遵守以下流程以防資產外洩：</p>
+                        <p>1. <strong>帳戶限額與持有人：</strong>轉帳帳戶持有人限要保人、被保險人或其直系血親。填寫時戶名、身分證字號及銀行帳號必須與存摺完全一致，切勿塗改。</p>
+                        <p>2. <strong>印鑑核對與授權：</strong>變更申請書上的「金融機構原留印鑑」必須清晰可辨。若與銀行開戶印鑑不符，將導致授權失敗，需重新填寫寄送，來回會耽誤約二週時間。</p>
+                        <p>3. <strong>扣款時間點：</strong>每次保費應繳日前，系統將自動進行扣款嘗試。請務必於應繳日前一日在帳戶內留存足額保費，避免餘額不足扣款未成。</p>
+                    </div>
+                </div>
+
+                <div class="elite-card" style="border-top: 4px solid var(--secondary);">
+                    <h3 style="font-size:1.15rem; font-weight:700; color:var(--primary-dark); margin-bottom:12px;">💡 二、信用卡繳費安全提示與權益</h3>
+                    <div style="font-size:0.92rem; text-align:justify; line-height:1.7;">
+                        <p style="margin-bottom:8px;">使用信用卡進行保費扣繳，不僅享有延後付款的便利，部分銀行更提供保費分期或刷卡回饋：</p>
+                        <p>1. <strong>新卡變更時效：</strong>若您因卡片毀損、遺失換卡或到期續卡，請於「保費應繳月」的前一個月月底前完成新授權書的簽署與寄回，給予發卡銀行審核的作業時間。</p>
+                        <p>2. <strong>持有人限制：</strong>為符合洗錢防制法與金融消費者保護法規範，扣繳保費之信用卡持有人僅限「要保人」或「被保險人」本人之卡片，非本人卡片將無法通過審查。</p>
+                        <p>3. <strong>通知機制：</strong>若因額度不足或卡片異常導致刷卡授權失敗，系統將發送簡訊與電子郵件通知。保戶需於 14 天內主動聯絡客服或提供替代卡片，以維持保單效力。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="slide8" class="page-section">
+            <div class="image-showcase">
+                <div class="img-icon">🩺</div>
+                <div class="title-group">
+                    <h3>家族資產全方位風險健診審查</h3>
+                    <p>Comprehensive Portfolio Health Audit</p>
+                </div>
+            </div>
+
+            <div class="elite-card">
+                <h2 class="section-title">為什麼您需要定期進行「保單健診」？</h2>
+                <div style="font-size:0.98rem; color:var(--text-main); text-align: justify; line-height: 1.8;">
+                    <p style="margin-bottom: 15px; text-indent: 28px;">
+                        保險配置絕非一勞永逸的靜態合約，而是一項必須隨著個人成長與家族資產變化，動態進行校準的長遠風險管理計畫。隨著我們步入不同的人生階段——從單身衝刺、結婚成家、迎接新生兒、購置不動產，一直到資產傳承與退休規劃，我們身上所承載的家庭責任額度與風險曝露程度完全不同。保單健診的核心目的，就是透過系統性的科學審查，全面檢視您過去所投保的險種、保額是否依然切合目前的實際需求，抓出防護網中的重疊與盲區。
+                    </p>
+                    <p style="margin-bottom: 15px; text-indent: 28px;">
+                        許多保戶在十年前購買了當時最完善的保障，卻忽略了通貨膨脹以及新醫療技術的推進。過時的保單架構，在面對如今動輒數十萬元的自費特殊材料、標靶藥物時，往往會面臨無法理賠的窘境。透過保單健診，不僅能將家中的呆滯保單重新活化，更能精準盤點出不必要的重複支出，將保費預算重新聚焦在最核心的風險缺口上，讓您的每一分钱都發揮出最大的槓桿效益。
+                    </p>
+                    
+                    <h3 style="color: var(--primary-dark); font-size: 1.2rem; margin: 20px 0 10px 0; font-weight: 700;">一、不容忽視的核心健診三大指標與險種架構</h3>
+                    <p style="margin-bottom: 12px;">
+                        <strong>1. 檢視醫療險與實支實付缺口：</strong>隨著醫療體制的多次變革，住院天數大幅縮短、自費醫療與達文西等新式手術耗材費用日益高昂。傳統「住院日額型」保險已無法解決龐大的自費收據缺口。健診時必須重點檢視醫療險是否符合損害填補原則，並補足足額的實支實付限額，方能安心享用高規格醫療，不讓醫藥費侵蝕家庭積蓄。
+                    </p>
+                    <p style="margin-bottom: 12px;">
+                        <strong>2. 重大傷病與癌症一次金替代率評估：</strong>一旦不幸罹患重大疾病，保戶往往面臨長達 2 至 3 年的工作暫停與漫長療養。此時「一次給付型」的重大傷病險便扮演關鍵角色。充足的一次金配置（建議為年收入的 2 至 3 倍），能完美覆蓋此期間的薪資中斷，保障家庭日常生活開銷不被體況災難拖垮。
+                    </p>
+                    <p style="margin-bottom: 15px;">
+                        <strong>3. 長期照顧與失能扶助防護線：</strong>長壽時代帶來了失能與長照風險。健診將幫您精算長照保險的給付標準，確保在喪失生活自理能力（如進食、沐浴、更衣等）時，每月有穩定的扶助金支應看護費用，維持保戶與家人的生活尊嚴。
+                    </p>
+
+                    <h3 style="color: var(--primary-dark); font-size: 1.2rem; margin: 20px 0 10px 0; font-weight: 700;">二、保單變更與健診四大關鍵注意事項</h3>
+                    <p style="margin-bottom: 12px;">
+                        在進行保單調整與優化時，務必嚴格遵循實務規範。<strong>首先是「受益人變更」</strong>，許多保戶結婚、離婚或經歷親人離世後忘記更新保單受益人，導致風險發生時保險金未能精準留給真正想守護的人；<strong>其次是「保費黃金比例」</strong>，合理的家庭總保費支出應嚴格控制在年收入的 10% 到 15% 之間，避免因保費負擔過重進而影響眼前的生活品質。
+                    </p>
+                    <p style="margin-bottom: 15px;">
+                        <strong>再者，切記注意「調整空窗期」與「職業告知義務」：</strong>若您欲解舊約換新約，新約通常有 30 天到 90 天不等的疾病等待期，在確認新保單順利核保並過等待期前，絕不可輕率終止舊保單。同時，若您的工作職務有所變動（例如從辦公室內勤轉為外勤拓展），務必主動向保險公司提出「職業變更告知」，以免因職業等級不符導致未來理賠金遭到按比例打折。星明保險建議您每 2 到 3 年主動為資產做全面校準，讓風險防護傘永遠完美撐起。
+                    </p>
+                </div>
+                <button class="btn-line-引流" style="max-width: 400px;" onclick="window.open('https://lin.ee/UjDCKYd', '_blank')">
+                    🩺 預約星明專家：一對一免費保單健診
+                </button>
+            </div>
+        </div>
+
+        <div id="slide10" class="page-section">
+            <div class="image-showcase">
+                <div class="img-icon">✈️</div>
+                <div class="title-group">
+                    <h3>全方位國內外旅遊綜合保障規劃</h3>
+                    <p>Global Travel Protection & Medical Defense</p>
+                </div>
+            </div>
+
+            <div class="elite-card" style="margin-bottom: 20px; border-left: 5px solid var(--secondary);">
+                <h2 class="section-title">行前無負擔、出遊更安心：旅行平安保險規劃指南</h2>
+                <p style="font-size:0.98rem; text-align: justify; line-height: 1.8;">
+                    許多人認為刷信用卡買機票贈送的保險就足夠，但信用卡附贈的公共運輸險，<strong>通常僅保障「搭乘大眾運輸工具期間」</strong>。一旦離開機場、展開行程後，旅途中的突發意外、天價的海外醫療、食物中毒、甚至行李遭竊，皆不在保障範圍內！出國在外，不論是突發急性腸胃炎就醫，還是在異地不慎跌倒骨折，海外無健保身份的醫療費用往往是天文數字。因此，說走就走的安心旅程，必須動態自訂足額的旅行平安綜合保障，方能確保出遊全程無後顧之憂。
+                </p>
+            </div>
+
+            <div class="grid-2col" style="margin-bottom:20px;">
+                <div class="elite-card" style="border-top: 4px solid var(--primary); padding: 25px;">
+                    <h3 style="font-size:1.15rem; font-weight:700; color: var(--primary-dark); margin-bottom:12px;">🌟 全天候 24 小時：人身意外與傷害醫療</h3>
+                    <p style="font-size:0.93rem; color:var(--text-main); margin-bottom: 10px;">從離開家門到返抵國門，提供國內外全程且不中斷的防護網：</p>
+                    <ul style="list-style:none; padding-left:0; font-size:0.9rem; line-height:1.7;">
+                        <li style="margin-bottom:6px;">🔹 <strong>意外身故暨失能保險金：</strong>提供最高額度的責任給付，奠定旅遊期間最核心的家人生活防禦。</li>
+                        <li style="margin-bottom:6px;">🔹 <strong>傷害醫療保險金（實支實付）：</strong>因遭受外來突發意外傷害事故所需之門診或住院醫療費用，全程提供損害填補給付。</li>
+                        <li style="margin-bottom:6px;">🔹 <strong>投投保年齡彈性：</strong>專為各年齡層跨世代全家族出遊設計，最高投保年齡可達 90 足歲。</li>
+                    </ul>
+                </div>
+
+                <div class="elite-card" style="border-top: 4px solid var(--secondary); padding: 25px;">
+                    <h3 style="font-size:1.15rem; font-weight:700; color: var(--primary-dark); margin-bottom:12px;">🌍 跨國專屬：海外突發疾病醫療「四重保障」</h3>
+                    <p style="font-size:0.93rem; color:var(--text-main); margin-bottom: 10px;">出國在外最怕昂貴醫療費，針對突發重大疾病或急性體況提供全面支持：</p>
+                    <ul style="list-style:none; padding-left:0; font-size:0.9rem; line-height:1.7;">
+                        <li style="margin-bottom:6px;">🩺 <strong>海外突發疾病「住院」醫療保險金：</strong>涵蓋海外必須即刻入住大型醫院核心重大費用。</li>
+                        <li style="margin-bottom:6px;">🚑 <strong>海外突發疾病「急診」與「門診」：</strong>不論大病小痛、急性水土不服掛急診或門診就醫，皆享實支實付。</li>
+                        <li style="margin-bottom:6px;">✈️ <strong>海外特定地區保額自動加倍：</strong>依前往之特定國家或地區（例如歐洲申根、美加、日韓等），醫療保險金限額調整係數**最高可自動提高至 350%**，有效抵抗美加等地的高昂醫療成本。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="elite-card" style="margin-bottom:20px; background:#fafafa;">
+                <h3 class="section-title" style="font-size:1.2rem;">🛡️ 旅遊不便險與智慧投保三原則</h3>
+                <div class="grid-2col" style="margin-top:15px; gap:15px; margin-bottom:0;">
+                    <div style="font-size:0.92rem; line-height:1.7;">
+                        <p style="font-weight:700; color:var(--primary-dark); margin-bottom:4px;">🎯 旅遊不便險靈魂項目</p>
+                        <p>• <strong>班機延誤：</strong>達指定時數直接定額補償，支應滯留期間膳宿費用。<br>
+                        • <strong>行李損失：</strong>航空公司摔壞行李箱、轉機弄丟或遭偷竊全面給付。<br>
+                        • <strong>旅程中斷：</strong>天災導致被迫滯留海外或提早返國之機票差額與實際損失。</p>
+                    </div>
+                    <div style="font-size:0.92rem; line-height:1.7;">
+                        <p style="font-weight:700; color:var(--accent-hover); margin-bottom:4px;">💡 投保核心注意要點</p>
+                        <p>• <strong>行前一週規劃：</strong>天災、颱風生成或罷工新聞公告後才投保，不便險將不予理賠。<br>
+                        • <strong>依目的地配置：</strong>前往歐盟地區強烈建議符合高額規範，並申請出具英文申根投保證明。<br>
+                        • <strong>年齡額度分級：</strong>未滿15歲兒童及高齡長者依最新法令有喪葬費用與核保額度上限規範。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="elite-card" style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary) 100%); color: var(--white); text-align: center; border: none; padding: 25px;">
+                <p style="font-weight: 700; font-size: 1rem; color: var(--accent); margin-bottom: 12px;">
+                    💡 多人集體投保、家庭出遊、未成年兒童、或申根簽證專用證明？為您提供產險之最佳方案！
+                </p>
+                <button class="btn-line-引流" style="margin: 0 auto;" onclick="window.open('https://lin.ee/UjDCKYd', '_blank')">
+                    ✈️ 立即線上諮詢：自訂專屬旅平防護網
+                </button>
+            </div>
+        </div>
+
+        <div id="slide12" class="page-section">
+            <div class="image-showcase">
+                <div class="img-icon">🏛️</div>
+                <div class="title-group">
+                    <h3>跨世代資產守護與家庭風險制度化管理藍圖</h3>
+                    <p>Strategic Wealth Preservation & Full-Discretionary Family Protection Plan</p>
+                </div>
+            </div>
+
+            <div class="elite-card" style="margin-bottom: 25px; border-left: 5px solid var(--primary); background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%);">
+                <h2 class="section-title">守護家庭的長期保障規劃｜讓責任被完整照顧的智慧選擇</h2>
+                <div style="font-size:1rem; color:var(--text-main); text-align: justify; line-height: 1.9;">
+                    <p style="text-indent: 32px; margin-bottom: 15px;">
+                        在每一個幸福家庭與成功事業的背後，都有一份沉默卻無比厚重的家庭責任：照顧至親家人、守護既有生活品質、並確保在任何不可抗力的極端狀況下，這份愛與承諾都不會被迫中斷。保險保障規劃的本質，從來就不是盲目追求短期資本的變動與高風險的不確定性，而是必須回到人生的最根本需求——<strong>當人身風險突發時，家庭的經濟命脈是否依然能被制度化地妥善照顧？</strong>
+                    </p>
+                    <p style="text-indent: 32px; margin-bottom: 15px;">
+                        保險在台灣現代金融體系中，是一門融合生命週期理論、法律防火牆架構以及跨世代財富對接的綜合性風險管理科學。合理的保障防禦藍圖，應由內而外分為「基礎健康醫療防禦層」、「家庭責任額度延續層」以及「資產傳承與隔離保全層」。我們協助中高端保戶在經濟景氣的擴張期與緊縮期交替之際，透過具有法律效力且不可撤銷的保險契約，將充滿變數的明日世界，錨定為絕對確定的安全防線。
+                    </p>
+                    <p style="text-indent: 32px;">
+                        許多高資產族群或家庭經濟支柱在全力衝刺事業時，往往將絕大部份資金投入高波動的股權或不動產市場，卻忽略了資產底層護城河的建設。一場突發的體況災難，不僅可能被迫強制變現正在虧損的投資部位，更可能引發家族資產重分配的家庭糾紛。因此，透過壽險、年金險以及多元外幣儲蓄保障工具進行立體化的配置，是確保家族基業長青、愛與責任得以代代相傳的最佳路徑。
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid-layout" style="margin-bottom: 25px;">
+                <div class="elite-card">
+                    <h3 class="section-title">🌿 為什麼我們需要重新思考「保障」這件事？</h3>
+                    <div style="font-size:0.95rem; line-height: 1.8; text-align: justify; color: var(--text-main);">
+                        <p style="margin-bottom: 12px;">
+                            人生中最大的風險，往往不是我們能夠預期或提早排定的。當一個人的社會地位提升、家庭責任正在快速累積（包含撫養年幼子女、長輩醫療照顧、高額房屋貸款以及企業經營擔保責任）時，充足的保險保障就不再只是可有可無的選擇，而是一種對家庭必要的理性安排。
+                        </p>
+                        <p style="margin-bottom: 12px; font-weight: 700; color: var(--primary-dark);">根據實務經驗，許多人在檢視或規劃保障時，心中常會浮現以下三個靈魂疑問：</p>
+                        <ul class="doc-list" style="margin-left: 5px;">
+                            <li><strong>疑問一：</strong>如果未來突發無法預期的重大體況或意外身故，留下來的家人是否依然能維持現有的高尊嚴生活品質，不被債務壓垮？</li>
+                            <li><strong>疑問二：</strong>目前手頭上過去投保的舊保單，其保險金額（保障額度）在扣除物價通膨後，是否真的足以承擔目前人生巔峰期的家庭責任總額？</li>
+                            <li><strong>疑問三：</strong>是否有一種完美的金融規劃方式，可以做到同時兼顧長期、穩定、兼具「資產累積」與「高額保障安排」的雙贏財務架構？</li>
+                        </ul>
+                        <p style="margin-top: 12px;">
+                            這三個問題的答案，正是本保障規劃方案的核心出發點。我們協助您建立一套與生命週期同步運作的動態財務安全體系。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="elite-card" style="background-color: #fafafa;">
+                    <h3 class="section-title">🛡️ 本保障規劃之三大核心設計架構</h3>
+                    <div style="font-size:0.93rem; line-height: 1.8;">
+                        <div style="margin-bottom: 15px;">
+                            <h4 style="color:var(--primary-dark); font-weight:700;">1️⃣ 建立鋼鐵般的家庭責任保障基礎</h4>
+                            <p style="color:var(--text-main); text-align: justify;">這項規劃提供的是一筆明確、即時且受法律保障的壽險保障金額。在特定風險事故發生時，這筆高額保險金將直接撥付給指定受益人，協助家庭完美延續原有的生活、教育與房貸安排，讓愛與責任完整接續，不受突然中斷的衝擊。</p>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <h4 style="color:var(--secondary); font-weight:700;">2️⃣ 穿越經濟週期的長期穩定合約架構</h4>
+                            <p style="color:var(--text-main); text-align: justify;">透過人身保險特有的長期契約法律保障，讓您的防護傘可以穩定橫跨人生的不同黃金階段。無論是年輕時期的家庭建立期，或是中年責任高峰期，均能持續鎖定完整防禦力，不受外在景氣波動干擾。</p>
+                        </div>
+                        <div>
+                            <h4 style="color:var(--accent-hover); font-weight:700;">3️⃣ 抗通膨與全球化配置的外幣計價工具</h4>
+                            <p style="color:var(--text-main); text-align: justify;">採用國際核心強勢外幣（如美元）進行計價與資產配置，提供不同於單一貨幣的保障配置選擇。在全球通膨與地緣政治波動的環境下，因應不同生活與責任需求，協助您同步規劃多幣別資產守護。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="elite-card" style="margin-bottom: 25px;">
+                <h3 class="section-title">💎 核心商品亮點：極速回本帶來的資產保全與資金高流動性</h3>
+                <div style="font-size:0.98rem; line-height: 1.8; text-align: justify; color: var(--text-main);">
+                    <p style="text-indent: 32px; margin-bottom: 15px;">
+                        本保障規劃最受市場矚目的劃時代亮點之一，在於其顛覆傳統壽險架構的<strong>「極高資金回收效率與高保本流動性」</strong>。在台灣傳統市場上，多數終身壽險或儲蓄型保單往往需要長達 7 至 10 年以上的時間，其保單解約金才有機會接近累積所繳保費總額，這往往導致要保人在資金調度上面臨長期的心理壓力與閉鎖期風險。
+                    </p>
+                    <p style="text-indent: 32px; margin-bottom: 15px;">
+                        然而，本專屬優質方案經過精密的精算架構優化，  <strong>在短短第 6 年（即繳費期滿時），其保單價值準備金所對應的解約金保本率便已達到驚人的：99.90%！</strong> 這意味著，自繳費期滿後的初始年度開始，未來不論您是因為大環境景氣變更、發現新商機需要資金週轉，或是面臨緊急調度需求，在申請契約終止（解約）時，幾乎完全不會有本金大幅虧損的資金折損風險。這種低持有壓力，能帶給資產配置者無與倫比的心理安全感。
+                    </p>
+                    <div class="highlight-notice" style="margin-bottom: 15px;">
+                        <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 5px;">🎯 顛覆想像：這不只是花掉的保費，更是您的中長期高增值資產停泊中心！</p>
+                        <p style="font-size: 0.92rem;">
+                            傳統觀念認為買高額壽險是一項純消費性的支出，但本商品讓您繳納的每一分保費，在合約生效後皆轉化為兼具「高額身故保障」與「中長期資產複利增值」的美元核心資產。它完美融合了兩大維度：
+                            <br><strong>✅ 完整的保險保障功能：</strong>投保初期即刻放大資產槓桿，建立數倍於保費的家庭責任與身故保障防線。
+                            <br><strong>✅ 中長期資產停泊與保全功能：</strong>透過穩健的宣告利率機制，鎖定保單價值準備金的長期複利成長，鎖定財富不縮水。
+                        </p>
+                    </div>
+                    <p style="text-indent: 32px;">
+                        在未來資產持續穩健增值的同時，這張保單實質上為您與家人建立起了一道防禦極端體況與財務風險的巨大安全防護網。客戶在持有期間，真正獲得的是<strong>「家庭責任保障」、「財富風險轉嫁」、「資產槓桿放大」以及「美元保單的資產傳承功能」</strong>。這份集多重財務效益於一身的契約，是銀行短期定存、高波動連動債、共同基金、甚至是台股 ETF 無法直接取代或模擬的獨特核心價值。
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid-2col" style="margin-bottom: 25px; gap: 20px;">
+                <div class="elite-card" style="border-top: 4px solid var(--primary);">
+                    <h3 style="font-size:1.15rem; font-weight:700; color:var(--primary-dark); margin-bottom:12px;">📈 長期持有的「複利增值潛力」與防禦成效</h3>
+                    <div style="font-size:0.92rem; text-align:justify; line-height:1.8; color: var(--text-main);">
+                        <p style="margin-bottom: 8px;">當保單步入中後期，時間的複利效應將全面展現，為您的資產保駕護航：</p>
+                        <p style="margin-bottom: 6px;">🟢 <strong>長期抗通膨能力：</strong>保單價值與保障額度透過宣告利率機制動態校準，有效投資未來，對抗貨幣購買力貶值。</p>
+                        <p style="margin-bottom: 6px;">🟢 <strong>美元資產增值效果：</strong>對接全球最強勢流通貨幣，佈局跨國資產，建立兼具效益與安全的雙軌平衡。</p>
+                        <p style="margin-bottom: 6px;">🟢 <strong>退休預備金功能：</strong>保單價值準備金可提供要保人於晚年活化，轉化為樂齡生活的源源不絕財富流。</p>
+                        <p style="margin-bottom: 6px;">🟢 <strong>財富傳承功能：</strong>利用人身保險指定受益人之特點，跳過繁複法律繼承程序，實現高效且定向的財富交接。</p>
+                    </div>
+                </div>
+
+                <div class="elite-card" style="border-top: 4px solid var(--secondary);">
+                    <h3 style="font-size:1.15rem; font-weight:700; color:var(--primary-dark); margin-bottom:12px;">🗺️ 靈活多元的未來資產活化用途規劃</h3>
+                    <div style="font-size:0.92rem; text-align:justify; line-height:1.8; color: var(--text-main);">
+                        <p style="margin-bottom: 8px;">一份規劃，多用途對接。本保單在人生的不同里程碑，累積之資產未來可作為以下關鍵功能：</p>
+                        <ul class="doc-list" style="padding-left: 5px;">
+                            <li><strong>退休現金流預備：</strong>打造不依賴社會福利與子女的專屬替代收入，樂享自在的高品質晚年生活。</li>
+                            <li><strong>醫療照護基金：</strong>未來體況老化時的尊榮自費醫療與長期看護專款，不讓突發病痛侵蝕家族既有財富。</li>
+                            <li><strong>子女財富傳承：</strong>在關鍵時刻撥付一筆具備法律保護的跨世代基業啟動資金，讓愛與成就完美延續。</li>
+                            <li><strong>美元資產配置：</strong>優化家族整體財務報表，平衡高風險投資，建立最安心、無懼市場波動的核心資本。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="elite-card" style="margin-bottom: 25px; background-color: #f0fdfa;">
+                <div class="grid-2col" style="gap: 20px; margin-bottom: 0;">
+                    <div>
+                        <h3 style="font-size:1.15rem; font-weight:700; color: var(--primary-dark); margin-bottom:12px;">👨‍👩‍👧 本核心保障方案適合哪些對象？</h3>
+                        <p style="font-size:0.9rem; margin-bottom:10px;">如果您符合以下任一財務特徵或人生階段需求，本規劃值得您深入了解：</p>
+                        <ul style="list-style: none; padding-left: 0; font-size: 0.9rem; line-height: 1.8;">
+                            <li>✔ <strong>想兼顧高額保障與資產累積的人</strong>：不願意讓資金白白流失，追求財務最高效益者。</li>
+                            <li>✔ <strong>不想資金長期被鎖死的人</strong>：重視資金解約保本率，希望在繳費期滿即擁有高流動性調度權者。</li>
+                            <li>✔ <strong>重視美元資產配置的人</strong>：希望在全球化多幣別布局下，抗通膨並優化資產結構者。</li>
+                            <li>✔ <strong>想規劃退休與傳承的人</strong>：正在承擔家庭主要經濟責任，渴望為家人生活建立依靠、做好準備者。</li>
+                            <li>✔ <strong>希望保費未來能有效回收的人</strong>：排斥傳統純消費型保險，希望每一分預算都能在未來轉化回資產者。</li>
+                        </ul>
+                    </div>
+
+                    <div style="border-left: 1px solid #b2f5ea; padding-left: 15px;">
+                        <h3 style="font-size:1.15rem; font-weight:700; color: var(--primary-dark); margin-bottom:12px;">📌 常見誤解與正確認知導正</h3>
+                        <div style="font-size:0.88rem; line-height:1.7; text-align: justify;">
+                            <p style="color:#dc2626; font-weight:700; margin-bottom:4px;">❌ 這不是短期使用的投機工具</p>
+                            <p style="margin-bottom:8px;">它不是用來炒作短期價差、追求暴利的短線財務槓桿，也不是用來追求快速變動結果的投機設計。</p>
+                            <p style="color:var(--primary-dark); font-weight:700; margin-bottom:4px;">✔ 它是一種長期風險管理工具</p>
+                            <p style="margin-bottom:8px;">它是家庭責任轉移的制度化安排，是讓人生在面對無常時更穩定的一種科學方法，更是讓「不確定」變得可被提前重組安排的金融盾牌。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="elite-card" style="text-align: center; background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary) 100%); color: var(--white); border: none; padding: 35px;">
+                <h3 style="font-size: 1.35rem; color: #fff; font-weight: 700; margin-bottom: 12px;">人生無法預測，但可以提前安排</h3>
+                <p style="font-size: 0.95rem; color: #e0f2fe; max-width: 850px; margin: 0 auto 20px auto; line-height: 1.8; text-align: justify; text-justify: inter-ideograph;">
+                    真正成熟且負責的規劃，不是去強行改變未來的世界，而是確保——當未來外在環境、景氣市場或突發體況發生劇烈變化時，您的至親家人依然能被這份法律與金流防線好好照顧。如果您正在思考如何替家庭建立更完整的風險防禦防護傘，這份方案是一個非常值得您即刻開始了解的起點。
+                </p>
+                <p style="font-weight: 700; font-size: 1rem; color: var(--accent); margin-bottom: 15px;">
+                    🎯 同時擁有高額保障 ｜ 兼顧家庭責任延續 ｜ 強化資產保全與傳承
+                </p>
+                <button class="btn-line-引流" style="margin: 0 auto; background: linear-gradient(135deg, var(--accent), #d97706);" onclick="window.open('https://lin.ee/UjDCKYd', '_blank')">
+                    💬 立即聯絡專家：自訂專屬資產防護傘
+                </button>
+            </div>
+        </div>
+
+    </div> <div id="admin-chat" class="chat-widget">
+        <div class="chat-header">
+            <span style="font-weight: 700; color: var(--white);">🔔 專屬線上顧問</span>
+            <button class="chat-close-btn" onclick="closeAdminChat()">×</button>
+        </div>
+        <div class="chat-body">
+            <div style="font-size: 2.5rem; margin-bottom: 8px;">📲</div>
+            <h4 style="color: var(--primary-dark); margin-bottom: 8px; font-size: 1.1rem;">正在為您連接專屬高階顧問</h4>
+            <p style="font-size: 0.9rem; color: var(--text-main); margin-bottom: 15px;">為提供最高規格的一對一隱私諮詢，請點擊下方按鈕直接啟動 LINE 官方帳號進行深度對談。</p>
+            <button class="btn-line-引流" style="margin: 0 auto; padding:12px;" onclick="window.open('https://lin.ee/UjDCKYd', '_blank'); closeAdminChat();">
+                💬 進入 LINE 真人對話
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function switchPage(pageId) {
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => section.classList.remove('active-page'));
+
+            const targetSection = document.getElementById(pageId);
+            if (targetSection) targetSection.classList.add('active-page');
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            const activeLink = document.getElementById(`link-${pageId}`);
+            if (activeLink) activeLink.classList.add('active');
+
+            window.location.hash = pageId;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            closeMobileMenu();
+        }
+
+        function toggleMobileMenu() {
+            const toggleBtn = document.getElementById('mobile-toggle');
+            const menuList = document.getElementById('nav-menu-list');
+            toggleBtn.classList.toggle('open');
+            menuList.classList.toggle('mobile-open');
+        }
+
+        function closeMobileMenu() {
+            const toggleBtn = document.getElementById('mobile-toggle');
+            const menuList = document.getElementById('nav-menu-list');
+            if (toggleBtn && menuList) {
+                toggleBtn.classList.remove('open');
+                menuList.classList.remove('mobile-open');
+            }
+        }
+
+        function openAdminChat() {
+            const chatWidget = document.getElementById('admin-chat');
+            chatWidget.classList.add('active');
+            closeMobileMenu();
+            window.location.hash = 'admin';
+        }
+
+        function closeAdminChat() {
+            const chatWidget = document.getElementById('admin-chat');
+            chatWidget.classList.remove('active');
+        }
+
+        const validPages = ['home', 'slide4', 'slide7', 'slide8', 'slide10', 'slide12'];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const currentHash = window.location.hash.replace('#', '');
+            if (currentHash && validPages.includes(currentHash)) {
+                switchPage(currentHash);
+            } else if (currentHash === 'admin') {
+                switchPage('home');
+                openAdminChat();
+            } else {
+                switchPage('home');
+            }
+        });
+
+        window.addEventListener('hashchange', () => {
+            const currentHash = window.location.hash.replace('#', '');
+            if (currentHash && validPages.includes(currentHash)) {
+                const targetPage = document.getElementById(currentHash);
+                if (targetPage && !targetPage.classList.contains('active-page')) {
+                    switchPage(currentHash);
+                }
+            } else if (currentHash === 'admin') {
+                openAdminChat();
+            }
+        });
+    </script>
+</body>
+</html>
